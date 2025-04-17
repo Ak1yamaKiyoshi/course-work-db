@@ -9,7 +9,7 @@
 #include "include/types/db.c"
 #include "src/utils.c"
 #include "src/routes/api/product_preview.c"
-
+#include "src/routes/api/list_categories.c"
 
 static void request_handler(struct mg_connection *connection, int event, void *event_data);
 
@@ -23,6 +23,8 @@ static void request_handler(struct mg_connection *connection, int event, void *e
   struct mg_http_message *hm = (struct mg_http_message *)event_data;
   if (mg_match(hm->uri, mg_str("/api/pizzas"), NULL)) {
     product_preview(connection, hm, db);
+  } else if ( mg_match(hm->uri, mg_str("/api/products/categories"), NULL)) {
+    list_categories(connection, hm, db);
   }
   else {
     mg_http_reply(connection, HTTP_STATUS_NOT_FOUND, "", "Not found\n");
