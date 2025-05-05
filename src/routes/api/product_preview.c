@@ -1,6 +1,13 @@
 #include "product_preview.h"
 #pragma once
 
+
+/*
+Implements products endpoint.
+example: 
+http://127.0.0.1:8000/api/products?limit=10&offset=4&type=Pizza
+*/
+
 static void product_preview(
     struct mg_connection *connection,
     struct mg_http_message *hm,
@@ -9,9 +16,13 @@ static void product_preview(
   char *type, *buffer, *str_limit, *str_offset;
   int rc = 0, limit = 0, offset = 0;
 
+  
   type = safe_strdup(get_query_param(hm, "type"));
   str_limit = safe_strdup(get_query_param(hm, "limit"));
   str_offset = safe_strdup(get_query_param(hm, "offset"));
+
+  // printf("lim %s offset %s type %s, uri %s", str_limit, str_offset, type, hm->uri);
+  // fflush(stdout);
 
   if (type == NULL)
     return mg_http_reply(connection, HTTP_STATUS_BAD_REQUEST, "", "Provide type as query param");
