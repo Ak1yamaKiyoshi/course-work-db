@@ -21,9 +21,11 @@ static void request_handler(struct mg_connection *connection, int event, void *e
     
   sqlite3 *db = connection->fn_data;
 
-  struct mg_http_message *hm = (struct mg_http_message *)event_data;
-  if (mg_match(hm->uri, mg_str("/api/products"), NULL)) {
 
+  struct mg_http_message *hm = (struct mg_http_message *)event_data;
+  printf("REQUEST %s", hm->uri);
+  fflush(stdout);
+  if (mg_match(hm->uri, mg_str("/api/products"), NULL)) {
     product_preview(connection, hm, db);
   } else if ( mg_match(hm->uri, mg_str("/api/categories"), NULL)) {
     list_categories(connection, hm, db); 
