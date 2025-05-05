@@ -1,6 +1,9 @@
-[submodule "mongoose"]
-	path = backend/mongoose
-	url = https://github.com/cesanta/mongoose.git
-[submodule "clay"]
-	path = "frontend/clay"
-	url = https://github.com/nicbarker/clay.git
+[submodule "backend/mongoose"]
+    path = backend/mongoose
+    url = https://github.com/cesanta/mongoose.git
+[submodule "frontend/clay"]
+    path = frontend/clay
+    url = https://github.com/nicbarker/clay.git
+[submodule "frontend/mongoose"]
+    path = frontend/mongoose
+    url = https://github.com/cesanta/mongoose.git

@@ -6,6 +6,9 @@
 
 #include <stdio.h>
 
+#include "mongoose/mongoose.h"
+
+
 const float ScreenWidth = 1000.f;
 const float ScreenHeight = 1000.f;
 
@@ -14,6 +17,7 @@ const int FONT_MONO = 0;
 void HandleClayErrors(Clay_ErrorData errorData) {
     printf("Clay Error: %.*s\n", errorData.errorText.length, errorData.errorText.chars);
 }
+
 
 int main(void) {
     Clay_Raylib_Initialize((int)ScreenWidth, (int)ScreenHeight, "test", FLAG_WINDOW_RESIZABLE);
@@ -54,29 +58,24 @@ int main(void) {
     
     Clay_SetMeasureTextFunction(Raylib_MeasureText, fonts);
     
-    SetTargetFPS(5);
+    SetTargetFPS(120);
     EnableEventWaiting();
-
 
     while (!WindowShouldClose()) {
         dimensions.width = GetScreenWidth();
         dimensions.height = GetScreenHeight();
         Clay_SetLayoutDimensions(dimensions);
         
-        // Clay_Vector2 mousePos = { GetMouseX(), GetMouseY() };
-        // Clay_SetPointerState(mousePos, IsMouseButtonDown(MOUSE_LEFT_BUTTON));
+        Clay_Vector2 mousePos = { GetMouseX(), GetMouseY() };
+        Clay_SetPointerState(mousePos, IsMouseButtonDown(MOUSE_LEFT_BUTTON));
         
         Clay_BeginLayout();
         
-        CLAY_TEXT(
-            CLAY_STRING("Aboba"),
-            CLAY_TEXT_CONFIG({
-                .fontId = FONT_MONO,
-                .fontSize = 52,
-                .textColor = (Clay_Color){ 20, 50, 20, 255 }
-            })
-        );
-        
+        CLAY({
+            .layout = { .padding = { .left = mousePos.x, .top = mousePos.y } } 
+        }) {
+            
+        }
         Clay_RenderCommandArray renderCommands = Clay_EndLayout();
 
         BeginDrawing();
