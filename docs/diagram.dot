@@ -1,0 +1,107 @@
+digraph InfologicalDiagram {
+    // Graph settings - using neato engine for force-directed layout
+    layout=neato;
+    overlap=false;
+    splines=true;
+    
+    // Entity nodes (larger circles)
+    Client [label="Client", shape=circle, style=filled, fillcolor="#e1f5fe", color="#0277bd", penwidth=2, fontname="Arial", fontsize=16, width=1.2, height=1.2];
+    Product [label="Product", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", penwidth=2, fontname="Arial", fontsize=16, width=1.2, height=1.2];
+    Order [label="Order", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", penwidth=2, fontname="Arial", fontsize=16, width=1.2, height=1.2];
+    OrderItem [label="Order\nItem", shape=circle, style=filled, fillcolor="#f3e5f5", color="#7b1fa2", penwidth=2, fontname="Arial", fontsize=16, width=1.2, height=1.2];
+    Promotion [label="Promotion", shape=circle, style=filled, fillcolor="#e0f7fa", color="#006064", penwidth=2, fontname="Arial", fontsize=16, width=1.2, height=1.2];
+    Topping [label="Topping", shape=circle, style=filled, fillcolor="#fff8e1", color="#ff8f00", penwidth=2, fontname="Arial", fontsize=16, width=1.2, height=1.2];
+    ProductTopping [label="Product\nTopping", shape=circle, style=filled, fillcolor="#f9fbe7", color="#827717", penwidth=2, fontname="Arial", fontsize=16, width=1.2, height=1.2];
+    
+    // Client attributes
+    Client_name [label="name", shape=circle, style=filled, fillcolor="#e1f5fe", color="#0277bd", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Client_phone [label="phone", shape=circle, style=filled, fillcolor="#e1f5fe", color="#0277bd", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Client_is_registered [label="is_registered", shape=circle, style=filled, fillcolor="#e1f5fe", color="#0277bd", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Client_email [label="email", shape=circle, style=filled, fillcolor="#e1f5fe", color="#0277bd", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Client_registration_date [label="registration\ndate", shape=circle, style=filled, fillcolor="#e1f5fe", color="#0277bd", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    
+    // Product attributes
+    Product_name [label="name", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Product_description [label="description", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Product_price [label="price", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Product_type [label="type", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Product_image [label="image", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Product_size [label="size", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Product_is_custom [label="is_custom", shape=circle, style=filled, fillcolor="#e8f5e9", color="#2e7d32", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    
+    // Order attributes
+    Order_time [label="order_time", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Order_total_price [label="total_price", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Order_delivery_method [label="delivery\nmethod", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Order_delivery_address [label="delivery\naddress", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Order_status [label="current\nstatus", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Order_status_updated [label="status\nupdated_at", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Order_item_count [label="item_count", shape=circle, style=filled, fillcolor="#fff3e0", color="#ef6c00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    
+    // OrderItem attributes
+    OrderItem_quantity [label="quantity", shape=circle, style=filled, fillcolor="#f3e5f5", color="#7b1fa2", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    OrderItem_price [label="price", shape=circle, style=filled, fillcolor="#f3e5f5", color="#7b1fa2", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    
+    // Promotion attributes
+    Promotion_name [label="name", shape=circle, style=filled, fillcolor="#e0f7fa", color="#006064", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Promotion_description [label="description", shape=circle, style=filled, fillcolor="#e0f7fa", color="#006064", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Promotion_start_date [label="start_date", shape=circle, style=filled, fillcolor="#e0f7fa", color="#006064", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Promotion_end_date [label="end_date", shape=circle, style=filled, fillcolor="#e0f7fa", color="#006064", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Promotion_discount [label="discount\npercent", shape=circle, style=filled, fillcolor="#e0f7fa", color="#006064", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Promotion_is_active [label="is_active", shape=circle, style=filled, fillcolor="#e0f7fa", color="#006064", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    
+    // Topping attributes
+    Topping_name [label="name", shape=circle, style=filled, fillcolor="#fff8e1", color="#ff8f00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Topping_price [label="price", shape=circle, style=filled, fillcolor="#fff8e1", color="#ff8f00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    Topping_category [label="category", shape=circle, style=filled, fillcolor="#fff8e1", color="#ff8f00", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    
+    // ProductTopping attributes
+    ProductTopping_is_default [label="is_default", shape=circle, style=filled, fillcolor="#f9fbe7", color="#827717", fontname="Arial", fontsize=12, width=0.7, height=0.7];
+    
+    // Connect entities to their attributes (undirected)
+    Client -> Client_name [dir=none, color="#0277bd"];
+    Client -> Client_phone [dir=none, color="#0277bd"];
+    Client -> Client_is_registered [dir=none, color="#0277bd"];
+    Client -> Client_email [dir=none, color="#0277bd"];
+    Client -> Client_registration_date [dir=none, color="#0277bd"];
+    
+    Product -> Product_name [dir=none, color="#2e7d32"];
+    Product -> Product_description [dir=none, color="#2e7d32"];
+    Product -> Product_price [dir=none, color="#2e7d32"];
+    Product -> Product_type [dir=none, color="#2e7d32"];
+    Product -> Product_image [dir=none, color="#2e7d32"];
+    Product -> Product_size [dir=none, color="#2e7d32"];
+    Product -> Product_is_custom [dir=none, color="#2e7d32"];
+    
+    Order -> Order_time [dir=none, color="#ef6c00"];
+    Order -> Order_total_price [dir=none, color="#ef6c00"];
+    Order -> Order_delivery_method [dir=none, color="#ef6c00"];
+    Order -> Order_delivery_address [dir=none, color="#ef6c00"];
+    Order -> Order_status [dir=none, color="#ef6c00"];
+    Order -> Order_status_updated [dir=none, color="#ef6c00"];
+    Order -> Order_item_count [dir=none, color="#ef6c00"];
+    
+    OrderItem -> OrderItem_quantity [dir=none, color="#7b1fa2"];
+    OrderItem -> OrderItem_price [dir=none, color="#7b1fa2"];
+    
+    Promotion -> Promotion_name [dir=none, color="#006064"];
+    Promotion -> Promotion_description [dir=none, color="#006064"];
+    Promotion -> Promotion_start_date [dir=none, color="#006064"];
+    Promotion -> Promotion_end_date [dir=none, color="#006064"];
+    Promotion -> Promotion_discount [dir=none, color="#006064"];
+    Promotion -> Promotion_is_active [dir=none, color="#006064"];
+    
+    Topping -> Topping_name [dir=none, color="#ff8f00"];
+    Topping -> Topping_price [dir=none, color="#ff8f00"];
+    Topping -> Topping_category [dir=none, color="#ff8f00"];
+    
+    ProductTopping -> ProductTopping_is_default [dir=none, color="#827717"];
+    
+    // Relationship edges between entities with directional arrows as specified
+    Order -> Client [label="client", fontname="Arial", fontsize=14, fontcolor="#333333", color="#333333", penwidth=1.5];
+    OrderItem -> Order [label="order", fontname="Arial", fontsize=14, fontcolor="#333333", color="#333333", penwidth=1.5];
+    OrderItem -> Product [label="product", fontname="Arial", fontsize=14, fontcolor="#333333", color="#333333", penwidth=1.5];
+    Promotion -> Product [label="product", fontname="Arial", fontsize=14, fontcolor="#333333", color="#333333", penwidth=1.5];
+    ProductTopping -> Product [label="product", fontname="Arial", fontsize=14, fontcolor="#333333", color="#333333", penwidth=1.5];
+    ProductTopping -> Topping [label="topping", fontname="Arial", fontsize=14, fontcolor="#333333", color="#333333", penwidth=1.5];
+}
